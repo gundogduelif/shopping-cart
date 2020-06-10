@@ -1,0 +1,6 @@
+# NOTE: It is possible to complete the project without
+# needing any third-party packages. 
+# But if you do end up using any third-party packages
+# (for example when addressing the further exploration challenges), 
+# you MUST include a "requirements.txt" file with all the packages listed inside!
+
