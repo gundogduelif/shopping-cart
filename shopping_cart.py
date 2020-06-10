@@ -1,5 +1,5 @@
 # shopping_cart.py
-
+import operator
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -23,6 +23,8 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
+
+
 def to_usd(my_price):
     """
     Converts a numeric value to usd-formatted string, for printing and display purposes.
@@ -35,22 +37,70 @@ def to_usd(my_price):
     """
     return f"${my_price:,.2f}" #> $12,000.71
 
-product_ids = []         #The Infinite Loop REFERENCE : https://www.tutorialspoint.com/python/python_while_loop.htm
-var = 1               
-while var == 1 :  
-   product_id = input('Please input a product identifier:')
-   if product_id == "DONE":
-       break
-   else: 
-       product_ids.append(product_id)     # Python List append() REFERENCE : https://www.youtube.com/watch?v=3BaGb-1cIr0&feature=youtu.be
-print("SHOPPING CARD IDENTIFIERS:",(product_ids))
+print("---------------------------------")
+print("KINGS GOURMET FOODS GROCERY")
+print("WEB: WWW.KINGSGOURMETFOODSGROCERY.COM")
+print("ADDRESS: 1508 Kings Hwy, Brooklyn, NY 11229")
+print("PHONE:(917) 222-3344")
+print("---------------------------------")
+print("CHECK OUT AT:")    
+product_total = 0
+product_ids = [] #The Infinite Loop REFERENCE : https://www.tutorialspoint.com/python/python_while_loop.htm
+#var = 1               
+#while var == 1 : 
+#  product_id = input('Please input a product identifier:') 
+#  if product_id == "DONE":
+#        break  
+#  else: product_ids.append(product_id) 
+#
+#print("SHOPPING CARD IDENTIFIERS INCLUDE:",(product_ids))
+# Python List append() REFERENCE : https://www.youtube.com/watch?v=3BaGb-1cIr0&feature=youtu.be
+product_ids = [1, 8, 6, 16, 6]   
+print("SHOPPING CARD IDENTIFIERS INCLUDE:",(product_ids))
 
+for product_id in product_ids:
+  matching_products = [p for p in products if str(p["id"]) == str(product_id)]
+  matching_product = matching_products[0]
+  usd = "${0:.2f}".format(matching_product["price"])
+  print(" + " + matching_product["name"] + " (" + str(usd) + ")")
+  product_total = product_total + matching_product["price"]
+
+
+#for b in product_total:
+#usd = "${0:.2f}".format(b["price"])
+    
+print("TOTAL PRICE IS:" + str(product_total))
+
+
+
+
+# product_id_limit = [l for l in products if str(l["id"]) < str(product_id)]:
+
+
+
+
+# def greater_than_twenty(i):
+#       return i > 20
+#       list(filter(greater_than_twenty,product_ids))
+#       print( "hello")
+
+# for x in product_ids:
+# matching_products = [p for p in products if p["id"] == x]
+# print("Hey, are you sure that product identifier" + str(product_ids) + "is correct? Please try again!") 
+                
 # product_ids = products["id"]
 
 
+# no_matches = [x for x in products if x >= 21]
+# print('Hey, are you sure that product identifier is correct? Please try again!',no_matches)
 
+# product_id != .join(map(str,products["id"]): 
+# 
+#   
 # Checkpoint 2: Look-up Products  
   # Steps:
+# When the clerk inputs a product identifier, the program should validate it, displaying a helpful message like "Hey, are you sure that product identifier is correct? Please try again!" if there are no products matching the given identifier.
+
 
   # 1.For a single valid product identifier, look up the matching product and print its name and price. HINT: try using a custom function in conjunction with a list comprehension.
   # 2.For each valid product identifier in the example list, look up the matching product and print its name and price.
@@ -80,25 +130,25 @@ print("SHOPPING CARD IDENTIFIERS:",(product_ids))
 # Please input a product identifier: 2
 # Please input a product identifier: 1
 # Please input a product identifier: DONE
-print("---------------------------------")
-print("GOURMET FOODS GROCERY")
-print("WWW.GOURMETFOODSGROCERY.COM")
-print("Address: 1508 Kings Hwy, Brooklyn, NY 11229")
-print("P:(917) 222-3344")
-print("---------------------------------")
-print("CHECK OUT AT:")
+#print("---------------------------------")
+#print("GOURMET FOODS GROCERY")
+#print("WWW.GOURMETFOODSGROCERY.COM")
+#print("Address: 1508 Kings Hwy, Brooklyn, NY 11229")
+#print("P:(917) 222-3344")
+#print("---------------------------------")
+#print("CHECK OUT AT:")
 #> CHECKOUT AT: 2020-02-07 03:54 PM
-print("---------------------------------")
-print("SELECTED PRODUCTS:")
+# print("---------------------------------")
+# print("SELECTED PRODUCTS:")
 #>  ... Chocolate Sandwich Cookies ($3.50)
 #>  ... All-Seasons Salt ($4.99)
 #>  ... Robust Golden Unsweetened Oolong Tea ($2.49)
 #>  ... All-Seasons Salt ($4.99)
 #>  ... Chocolate Sandwich Cookies ($3.50)
-print("---------------------------------")
-print("SUBTOTAL:")
-print("TAX:")
-print("TOTAL:")
-print("---------------------------------")
-print("THANKS, SEE YOU AGAIN SOON!")
-print("---------------------------------")
+# print("---------------------------------")
+# print("SUBTOTAL:")
+# print("TAX:")
+# print("TOTAL:")
+# print("---------------------------------")
+# print("THANKS, SEE YOU AGAIN SOON!")
+# print("---------------------------------")
