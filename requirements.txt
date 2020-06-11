@@ -7,3 +7,4 @@
 # references
 #1.The Infinite Loop REFERENCE : https://www.tutorialspoint.com/python/python_while_loop.htm
 #2.Python List append() REFERENCE : https://www.youtube.com/watch?v=3BaGb-1cIr0&feature=youtu.be
+#3.# DateTime REFERENCE: https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior

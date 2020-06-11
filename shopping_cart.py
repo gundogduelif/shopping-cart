@@ -1,5 +1,7 @@
 # shopping_cart.py
-import operator
+
+import datetime
+
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -25,17 +27,17 @@ products = [
 
 
 
-def to_usd(my_price):
-    """
-    Converts a numeric value to usd-formatted string, for printing and display purposes.
-
-    Param: my_price (int or float) like 4000.444444
-
-    Example: to_usd(4000.444444)
-
-    Returns: $4,000.44
-    """
-    return f"${my_price:,.2f}" #> $12,000.71
+#def to_usd(my_price):
+#    """
+#    Converts a numeric value to usd-formatted string, for printing and display purposes.
+#
+#    Param: my_price (int or float) like 4000.444444
+#
+#    Example: to_usd(4000.444444)
+#
+#    Returns: $4,000.44
+#    """
+#    return f"${my_price:,.2f}" #> $12,000.71
 
 print("---------------------------------")
 print("KINGS GOURMET FOODS GROCERY")
@@ -43,7 +45,9 @@ print("WEB: WWW.KINGSGOURMETFOODSGROCERY.COM")
 print("ADDRESS: 1508 Kings Hwy, Brooklyn, NY 11229")
 print("PHONE:(917) 222-3344")
 print("---------------------------------")
-print("CHECK OUT AT:")    
+now = datetime.datetime.now()
+print("CHECK OUT AT:   " + now.strftime("%Y-%m-%d %H:%M")) # DateTime REFERENCE: https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior
+  
 product_total = 0
 product_ids = [] #The Infinite Loop REFERENCE : https://www.tutorialspoint.com/python/python_while_loop.htm
 #var = 1               
@@ -64,20 +68,33 @@ for product_id in product_ids:
   usd = "${0:.2f}".format(matching_product["price"])
   print(" + " + matching_product["name"] + " (" + str(usd) + ")")
   product_total = product_total + matching_product["price"]
+  tax_total = (product_total * 8.75)/100 
+  grand_total = product_total + tax_total
 
 
+
+print("---------------------------------")
+print("SUBTOTAL:" + str(product_total))
+print("NY SALES TAX:" + str(tax_total))
+print("TOTAL:" + str(grand_total))
+print("---------------------------------")
+print("THANKS, SEE YOU AGAIN SOON!")
+print("---------------------------------")
+
+  # usd2 = "${0:.2f}".format(product_total)
 #for b in product_total:
 #usd = "${0:.2f}".format(b["price"])
-    
-print("TOTAL PRICE IS:" + str(product_total))
+ #round method? 
+#def to_usd(product_total):
+#return f"${product_total:,.2f}" #> $12,000.71
 
-
-
+    #def celsius_to_fahrenheit(temp):
+#Converts a Celsius temperature to a Fahrenheit temperature, using the standard conversion formula.
+#Param: temp (float) like 0
+#Returns: the corresponding temp (float), like 32.0
+    #return (temp * 9 / 5) + 32
 
 # product_id_limit = [l for l in products if str(l["id"]) < str(product_id)]:
-
-
-
 
 # def greater_than_twenty(i):
 #       return i > 20
@@ -95,60 +112,14 @@ print("TOTAL PRICE IS:" + str(product_total))
 # print('Hey, are you sure that product identifier is correct? Please try again!',no_matches)
 
 # product_id != .join(map(str,products["id"]): 
-# 
-#   
-# Checkpoint 2: Look-up Products  
-  # Steps:
-# When the clerk inputs a product identifier, the program should validate it, displaying a helpful message like "Hey, are you sure that product identifier is correct? Please try again!" if there are no products matching the given identifier.
-
-
-  # 1.For a single valid product identifier, look up the matching product and print its name and price. HINT: try using a custom function in conjunction with a list comprehension.
-  # 2.For each valid product identifier in the example list, look up the matching product and print its name and price.
-  # 3.For each valid product identifier in the example list, look up the matching product and print its name and price, and add its price to a running-total of all prices, then print the running-total after iterating through the entire list. For now, you don't necessarily need to worry about formatting prices as USD.
-
-# Checkpoint 3: Printing the Receipt
-  # Steps:
-
-  # 1. For each receipt component listed in the project requirements (e.g. store name, product prices, taxes, total price, farewell message, etc.), revise your program to print that component.
 
 # TO DO LIST
 
 #####  1 A grocery store name of your choice
 ##### 2 A grocery store phone number and/or website URL and/or address of choice
-# 3 The date and time of the beginning of the checkout process, formatted in a human-friendly way (e.g. 2020-02-07 03:54 PM)
-# 4 The name and price of each shopping cart item, price being formatted as US dollars and cents (e.g. $3.50, etc.)
-# 5 The total cost of all shopping cart items (i.e. the "subtotal"), formatted as US dollars and cents (e.g. $19.47), calculated as the sum of their prices
-# 6 The amount of tax owed (e.g. $1.70), calculated by multiplying the total cost by a New York City sales tax rate of 8.75% (for the purposes of this project, groceries are not exempt from sales tax)
-# 7 The total amount owed, formatted as US dollars and cents (e.g. $21.17), calculated by adding together the amount of tax owed plus the total cost of all shopping cart items
-# ##### 8 A friendly message thanking the customer and/or encouraging the customer to shop again
-
-
-
-# Please input a product identifier: 1
-# Please input a product identifier: 2
-# Please input a product identifier: 3
-# Please input a product identifier: 2
-# Please input a product identifier: 1
-# Please input a product identifier: DONE
-#print("---------------------------------")
-#print("GOURMET FOODS GROCERY")
-#print("WWW.GOURMETFOODSGROCERY.COM")
-#print("Address: 1508 Kings Hwy, Brooklyn, NY 11229")
-#print("P:(917) 222-3344")
-#print("---------------------------------")
-#print("CHECK OUT AT:")
-#> CHECKOUT AT: 2020-02-07 03:54 PM
-# print("---------------------------------")
-# print("SELECTED PRODUCTS:")
-#>  ... Chocolate Sandwich Cookies ($3.50)
-#>  ... All-Seasons Salt ($4.99)
-#>  ... Robust Golden Unsweetened Oolong Tea ($2.49)
-#>  ... All-Seasons Salt ($4.99)
-#>  ... Chocolate Sandwich Cookies ($3.50)
-# print("---------------------------------")
-# print("SUBTOTAL:")
-# print("TAX:")
-# print("TOTAL:")
-# print("---------------------------------")
-# print("THANKS, SEE YOU AGAIN SOON!")
-# print("---------------------------------")
+##### 3 The date and time of the beginning of the checkout process, formatted in a human-friendly way (e.g. 2020-02-07 03:54 PM)
+##### 4 The name and price of each shopping cart item, price being formatted as US dollars and cents (e.g. $3.50, etc.)
+##### 5 The total cost of all shopping cart items (i.e. the "subtotal"), formatted as US dollars and cents (e.g. $19.47), calculated as the sum of their prices
+##### 6 The amount of tax owed (e.g. $1.70), calculated by multiplying the total cost by a New York City sales tax rate of 8.75% (for the purposes of this project, groceries are not exempt from sales tax)
+##### 7 The total amount owed, formatted as US dollars and cents (e.g. $21.17), calculated by adding together the amount of tax owed plus the total cost of all shopping cart items
+##### 8 A friendly message thanking the customer and/or encouraging the customer to shop again
