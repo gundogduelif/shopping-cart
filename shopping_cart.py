@@ -25,20 +25,6 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
-
-
-#def to_usd(my_price):
-#    """
-#    Converts a numeric value to usd-formatted string, for printing and display purposes.
-#
-#    Param: my_price (int or float) like 4000.444444
-#
-#    Example: to_usd(4000.444444)
-#
-#    Returns: $4,000.44
-#    """
-#    return f"${my_price:,.2f}" #> $12,000.71
-
 print("---------------------------------")
 print("KINGS GOURMET FOODS GROCERY")
 print("WEB: WWW.KINGSGOURMETFOODSGROCERY.COM")
@@ -70,13 +56,11 @@ for product_id in product_ids:
   product_total = product_total + matching_product["price"]
   tax_total = (product_total * 8.75)/100 
   grand_total = product_total + tax_total
-
-
-
+  
 print("---------------------------------")
-print("SUBTOTAL:" + str(product_total))
-print("NY SALES TAX:" + str(tax_total))
-print("TOTAL:" + str(grand_total))
+print("SUBTOTAL:" + str(round(product_total, 2)))
+print("NY SALES TAX:" + str(round(tax_total, 2)))
+print("TOTAL:" + str(round(grand_total, 2)))
 print("---------------------------------")
 print("THANKS, SEE YOU AGAIN SOON!")
 print("---------------------------------")
