@@ -36,17 +36,17 @@ print("CHECK OUT AT:   " + now.strftime("%Y-%m-%d %H:%M")) # DateTime REFERENCE:
   
 product_total = 0
 product_ids = [] #The Infinite Loop REFERENCE : https://www.tutorialspoint.com/python/python_while_loop.htm
-#var = 1               
-#while var == 1 : 
-#  product_id = input('Please input a product identifier:') 
-#  if product_id == "DONE":
-#        break  
-#  else: product_ids.append(product_id) 
-#
-#print("SHOPPING CARD IDENTIFIERS INCLUDE:",(product_ids))
-# Python List append() REFERENCE : https://www.youtube.com/watch?v=3BaGb-1cIr0&feature=youtu.be
-product_ids = [1, 8, 6, 16, 6]   
+var = 1               
+while var == 1 : 
+  product_id = input('Please input a product identifier:') 
+  if product_id == "DONE":
+        break  
+  else: product_ids.append(product_id) 
+
 print("SHOPPING CARD IDENTIFIERS INCLUDE:",(product_ids))
+# Python List append() REFERENCE : https://www.youtube.com/watch?v=3BaGb-1cIr0&feature=youtu.be
+#product_ids = [1, 8, 6, 16, 6]   
+#print("SHOPPING CARD IDENTIFIERS INCLUDE:",(product_ids))
 
 for product_id in product_ids:
   matching_products = [p for p in products if str(p["id"]) == str(product_id)]
@@ -56,7 +56,7 @@ for product_id in product_ids:
   product_total = product_total + matching_product["price"]
   tax_total = (product_total * 8.75)/100 
   grand_total = product_total + tax_total
-  
+
 print("---------------------------------")
 print("SUBTOTAL:" + str(round(product_total, 2)))
 print("NY SALES TAX:" + str(round(tax_total, 2)))
@@ -65,18 +65,6 @@ print("---------------------------------")
 print("THANKS, SEE YOU AGAIN SOON!")
 print("---------------------------------")
 
-  # usd2 = "${0:.2f}".format(product_total)
-#for b in product_total:
-#usd = "${0:.2f}".format(b["price"])
- #round method? 
-#def to_usd(product_total):
-#return f"${product_total:,.2f}" #> $12,000.71
-
-    #def celsius_to_fahrenheit(temp):
-#Converts a Celsius temperature to a Fahrenheit temperature, using the standard conversion formula.
-#Param: temp (float) like 0
-#Returns: the corresponding temp (float), like 32.0
-    #return (temp * 9 / 5) + 32
 
 # product_id_limit = [l for l in products if str(l["id"]) < str(product_id)]:
 
@@ -99,7 +87,7 @@ print("---------------------------------")
 
 # TO DO LIST
 
-#####  1 A grocery store name of your choice
+##### 1 A grocery store name of your choice
 ##### 2 A grocery store phone number and/or website URL and/or address of choice
 ##### 3 The date and time of the beginning of the checkout process, formatted in a human-friendly way (e.g. 2020-02-07 03:54 PM)
 ##### 4 The name and price of each shopping cart item, price being formatted as US dollars and cents (e.g. $3.50, etc.)
