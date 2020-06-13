@@ -62,26 +62,20 @@ for product_id in product_ids:
   
   usd = "${0:.2f}".format(matching_product["price"])      #usd format REFERENCE :https://www.youtube.com/watch?v=Noy20XaMqho&feature=youtu.be
   print(" + " + matching_product["name"] + " (" + str(usd) + ")")
-  
-  product_total += matching_product["price"]
-  tax_total = (product_total * 8.75)/100 
-  grand_total = product_total + tax_total
 
+  usd2 = "${0:.2f}".format(product_total) 
+  product_total += matching_product["price"]
+  
+  tax_total = (product_total * 8.75)/100
+  usd3 = "${0:.2f}".format(tax_total)  
+  
+  grand_total = product_total + tax_total
+  usd4 = "${0:.2f}".format(grand_total) 
+  
 print("---------------------------------")
-print("SUBTOTAL:" + str(round(product_total, 2)))
-print("NY SALES TAX:" + str(round(tax_total, 2)))
-print("TOTAL:" + str(round(grand_total, 2)))
+print("SUBTOTAL:" + str(usd2))
+print("NY SALES TAX:" + str(usd3))
+print("TOTAL:" + str(usd4))
 print("---------------------------------")
 print("THANKS, SEE YOU AGAIN SOON!")
 print("---------------------------------")
-
-# TO DO LIST
-
-##### 1 A grocery store name of your choice
-##### 2 A grocery store phone number and/or website URL and/or address of choice
-##### 3 The date and time of the beginning of the checkout process, formatted in a human-friendly way (e.g. 2020-02-07 03:54 PM)
-##### 4 The name and price of each shopping cart item, price being formatted as US dollars and cents (e.g. $3.50, etc.)
-##### 5 The total cost of all shopping cart items (i.e. the "subtotal"), formatted as US dollars and cents (e.g. $19.47), calculated as the sum of their prices
-##### 6 The amount of tax owed (e.g. $1.70), calculated by multiplying the total cost by a New York City sales tax rate of 8.75% (for the purposes of this project, groceries are not exempt from sales tax)
-##### 7 The total amount owed, formatted as US dollars and cents (e.g. $21.17), calculated by adding together the amount of tax owed plus the total cost of all shopping cart items
-##### 8 A friendly message thanking the customer and/or encouraging the customer to shop again
