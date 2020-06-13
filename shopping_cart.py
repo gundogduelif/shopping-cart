@@ -35,13 +35,17 @@ now = datetime.datetime.now()
 print("CHECK OUT AT:   " + now.strftime("%Y-%m-%d %H:%M")) # DateTime REFERENCE: https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior
  
 
-product_ids = []                                           #The Infinite Loop REFERENCE : https://www.tutorialspoint.com/python/python_while_loop.htm
-var = 1               
+valid_ids = range (0, 21, 1)           # range approach REFERENCE https://www.pythoncentral.io/pythons-range-function-explained/#:~:text=range()%20(and%20Python%20in,%2C%20but%20not%20including%2C%20stop%20.
+product_ids = []                       #The Infinite Loop REFERENCE : https://www.tutorialspoint.com/python/python_while_loop.htm
+var = 1                
 while var == 1 : 
   product_id = input('Please input a product identifier:')  
   if product_id == "DONE":
-        break      
-  else: product_ids.append(product_id)                    #List append() REFERENCE : https://www.youtube.com/watch?v=3BaGb-1cIr0&feature=youtu.be
+        break   
+  elif int(product_id) in valid_ids: 
+    product_ids.append(product_id) 
+  else:
+    print("Hey, are you sure that product identifier is correct? Please try again!") #List append() REFERENCE : https://www.youtube.com/watch?v=3BaGb-1cIr0&feature=youtu.be
 print("SHOPPING CARD IDENTIFIERS INCLUDE:",(product_ids)) 
 
 #options = ["rock", "paper", "scissors"]
@@ -62,7 +66,7 @@ for product_id in product_ids:
   usd = "${0:.2f}".format(matching_product["price"])      #usd format REFERENCE :https://www.youtube.com/watch?v=Noy20XaMqho&feature=youtu.be
   print(" + " + matching_product["name"] + " (" + str(usd) + ")")
   
-  product_total = product_total + matching_product["price"]
+  product_total += matching_product["price"]
   tax_total = (product_total * 8.75)/100 
   grand_total = product_total + tax_total
 
@@ -89,7 +93,7 @@ print("---------------------------------")
 
 # for x in product_ids:
 # matching_products = [p for p in products if p["id"] == x]
-# print("Hey, are you sure that product identifier" + str(product_ids) + "is correct? Please try again!") 
+# print("Hey, are you sure that product identifier is correct? Please try again!") 
                 
 # product_ids = products["id"]
 
