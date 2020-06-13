@@ -1,7 +1,7 @@
 # shopping_cart.py
 
 import datetime
-
+import string
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -35,32 +35,29 @@ now = datetime.datetime.now()
 print("CHECK OUT AT:   " + now.strftime("%Y-%m-%d %H:%M")) # DateTime REFERENCE: https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior
  
 
-valid_ids = range (0, 21, 1)           # range approach REFERENCE https://www.pythoncentral.io/pythons-range-function-explained/#:~:text=range()%20(and%20Python%20in,%2C%20but%20not%20including%2C%20stop%20.
-product_ids = []                       #The Infinite Loop REFERENCE : https://www.tutorialspoint.com/python/python_while_loop.htm
+valid_ids = range (1, 21, 1)           # range approach REFERENCE https://www.pythoncentral.io/pythons-range-function-explained/#:~:text=range()%20(and%20Python%20in,%2C%20but%20not%20including%2C%20stop%20.            
+product_ids = []  #The Infinite Loop REFERENCE : https://www.tutorialspoint.com/python/python_while_loop.htm
 var = 1                
 while var == 1 : 
-  product_id = input('Please input a product identifier:')  
+  product_id = input('Please input a product identifier:')
   if product_id == "DONE":
-        break   
-  elif int(product_id) in valid_ids: 
-    product_ids.append(product_id) 
+    break
+  elif product_id == "done": 
+    break
+  elif product_id.isalpha():               # isalpha approach REFERENCE: https://www.w3schools.com/python/ref_string_isalpha.asp
+      print ("Error Message Bar: Entered letters! Please input numbers only!")
+  elif product_id in string.punctuation:   # string.punctuation https://www.geeksforgeeks.org/string-punctuation-in-python/
+      print("Error Message Bar: Entered punctuation mark! Please input numbers only!") #Error Message bar: Please input numbers only!   
+  elif int(product_id) in valid_ids:
+        product_ids.append(product_id)
   else:
-    print("Hey, are you sure that product identifier is correct? Please try again!") #List append() REFERENCE : https://www.youtube.com/watch?v=3BaGb-1cIr0&feature=youtu.be
+    print("Error Message Bar: Product identifier isn't correct? Please try again!") #List append() REFERENCE : https://www.youtube.com/watch?v=3BaGb-1cIr0&feature=youtu.be
 print("SHOPPING CARD IDENTIFIERS INCLUDE:",(product_ids)) 
 
-#options = ["rock", "paper", "scissors"]
-
-#choice = input("Please choose either 'rock', 'paper', or 'scissors': ")
-
-#if choice in options:
-   # print("YOU CHOSE", choice)
-#else:
-   # raise ValueError("OOPS - Please type 'rock', or 'paper', or 'scissors' (without using using quotation marks).")
 product_total = 0
 for product_id in product_ids:
   matching_products = [p for p in products if str(p["id"]) == str(product_id)]
-  matching_product = matching_products[0]     
-  #List append() REFERENCE : https://www.youtube.com/watch?v=3BaGb-1cIr0&feature=youtu.be
+  matching_product = matching_products[0]                 #List append() REFERENCE : https://www.youtube.com/watch?v=3BaGb-1cIr0&feature=youtu.be
   
   
   usd = "${0:.2f}".format(matching_product["price"])      #usd format REFERENCE :https://www.youtube.com/watch?v=Noy20XaMqho&feature=youtu.be
@@ -77,31 +74,6 @@ print("TOTAL:" + str(round(grand_total, 2)))
 print("---------------------------------")
 print("THANKS, SEE YOU AGAIN SOON!")
 print("---------------------------------")
-
-
-#if product_id not in matching_products:
-        #raise ValueError("errrroorrrrrrrr")
-
- #if str(product_id) != str(products["id"]):
-        #break
-# product_id_limit = [l for l in products if str(l["id"]) < str(product_id)]:
-
-# def greater_than_twenty(i):
-#       return i > 20
-#       list(filter(greater_than_twenty,product_ids))
-#       print( "hello")
-
-# for x in product_ids:
-# matching_products = [p for p in products if p["id"] == x]
-# print("Hey, are you sure that product identifier is correct? Please try again!") 
-                
-# product_ids = products["id"]
-
-
-# no_matches = [x for x in products if x >= 21]
-# print('Hey, are you sure that product identifier is correct? Please try again!',no_matches)
-
-# product_id != .join(map(str,products["id"]): 
 
 # TO DO LIST
 
