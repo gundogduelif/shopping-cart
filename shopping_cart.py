@@ -35,8 +35,8 @@ now = datetime.datetime.now()
 print("CHECK OUT AT:   " + now.strftime("%Y-%m-%d %H:%M")) # DateTime REFERENCE: https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior
  
 
-valid_ids = range (1, 21, 1)           # range approach REFERENCE https://www.pythoncentral.io/pythons-range-function-explained/#:~:text=range()%20(and%20Python%20in,%2C%20but%20not%20including%2C%20stop%20.            
-product_ids = []  #The Infinite Loop REFERENCE : https://www.tutorialspoint.com/python/python_while_loop.htm
+valid_ids = range (1, 21, 1)           #Range Approach REFERENCE: https://www.pythoncentral.io/pythons-range-function-explained/#:~:text=range()%20(and%20Python%20in,%2C%20but%20not%20including%2C%20stop%20.            
+product_ids = []                       #The Infinite Loop REFERENCE : https://www.tutorialspoint.com/python/python_while_loop.htm
 var = 1                
 while var == 1 : 
   product_id = input('Please input a product identifier:')
@@ -44,21 +44,20 @@ while var == 1 :
     break
   elif product_id == "done": 
     break
-  elif product_id.isalpha():               # isalpha approach REFERENCE: https://www.w3schools.com/python/ref_string_isalpha.asp
+  elif product_id.isalpha():               #isalpha Approach REFERENCE: Prof. Rossetti & https://www.w3schools.com/python/ref_string_isalpha.asp
       print ("Error Message Bar: Entered letters! Please input numbers only!")
-  elif product_id in string.punctuation:   # string.punctuation https://www.geeksforgeeks.org/string-punctuation-in-python/
+  elif product_id in string.punctuation:   #string.punctuation REFERENCE: https://www.geeksforgeeks.org/string-punctuation-in-python/
       print("Error Message Bar: Entered punctuation mark! Please input numbers only!") #Error Message bar: Please input numbers only!   
   elif int(product_id) in valid_ids:
-        product_ids.append(product_id)
+        product_ids.append(product_id)     #list append() REFERENCE : https://www.youtube.com/watch?v=3BaGb-1cIr0&feature=youtu.be
   else:
-    print("Error Message Bar: Product identifier isn't correct? Please try again!") #List append() REFERENCE : https://www.youtube.com/watch?v=3BaGb-1cIr0&feature=youtu.be
+    print("Error Message Bar: Product identifier isn't correct? Please try again!") 
 print("SHOPPING CARD IDENTIFIERS INCLUDE:",(product_ids)) 
 
 product_total = 0
 for product_id in product_ids:
   matching_products = [p for p in products if str(p["id"]) == str(product_id)]
-  matching_product = matching_products[0]                 #List append() REFERENCE : https://www.youtube.com/watch?v=3BaGb-1cIr0&feature=youtu.be
-  
+  matching_product = matching_products[0]                  
   
   usd = "${0:.2f}".format(matching_product["price"])      #usd format REFERENCE :https://www.youtube.com/watch?v=Noy20XaMqho&feature=youtu.be
   print(" + " + matching_product["name"] + " (" + str(usd) + ")")
