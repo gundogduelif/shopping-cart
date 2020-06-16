@@ -62,8 +62,9 @@ for product_id in product_ids:
   usd = "${0:.2f}".format(matching_product["price"])      #usd format REFERENCE :https://www.youtube.com/watch?v=Noy20XaMqho&feature=youtu.be
   print(" + " + matching_product["name"] + " (" + str(usd) + ")")
 
-  usd2 = "${0:.2f}".format(product_total) 
+  
   product_total += matching_product["price"]
+  usd2 = "${0:.2f}".format(product_total) 
   
   tax_total = (product_total * 8.75)/100
   usd3 = "${0:.2f}".format(tax_total)  

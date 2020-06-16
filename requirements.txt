@@ -1,3 +1,7 @@
+# THIRD PARTY PACKAGES AND/OR MODULES
+#1) datetime
+#2) string 
+
 # NOTE: It is possible to complete the project without
 # needing any third-party packages. 
 # But if you do end up using any third-party packages
